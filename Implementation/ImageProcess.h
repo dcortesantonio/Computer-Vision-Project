@@ -2,9 +2,9 @@
 #define ImageProcessProcess__H
 
 #include <cmath>
-#include <opencv2/core.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/highgui.hpp>
+#include "opencv2/core.hpp"
+#include "opencv2/imgproc.hpp"
+#include "opencv2/highgui.hpp"
 #include "Coin.h"
 
 class ImageProcess
@@ -21,8 +21,6 @@ ImageProcess( std::string name);
 virtual ~ImageProcess();
 void getBaseName(  std::string s );
 void ResizeImage();
-cv::Mat generateCirles(cv::Mat markers, std::vector<std::vector<cv::Point> > contours);
-std::vector<cv::Vec3b> generateColors(  std::vector<std::vector<cv::Point> > contours);
 double getTotalValue(std::vector<std::vector<cv::Point> > contours);
 std::pair<double, double> process();
 double getValueImage(  double m_Area);
