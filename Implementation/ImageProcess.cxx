@@ -1,5 +1,4 @@
 #define _USE_MATH_DEFINES
-#include <iostream>
 #include "ImageProcess.h"
 
 ImageProcess::ImageProcess(){
@@ -58,7 +57,6 @@ process()
   imwrite(this->m_BaseName+"distanceMap.png",dist);
   // Normalize the distance image for range = {0.0, 1.0} so we can visualize and threshold it
   normalize(dist, dist, 0, 1, cv::NORM_MINMAX);
-
   // Threshold to obtain the peaks, this will be the markers for the foreground objects
   threshold(dist, dist, 0.4, 1.0, cv::THRESH_BINARY);
     
@@ -123,7 +121,6 @@ getTotalValue(  std::vector<std::vector<cv::Point> > contours)
   {
    
     double equiDiameter = sqrt( (4 * cv::contourArea(contours[i])) / M_PI);
-    std::cout<<equiDiameter<<std::endl;
     double value = getValueImage(equiDiameter);
     m_Total+=value;
     char str[200];
